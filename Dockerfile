@@ -35,6 +35,11 @@ ADD aria2.conf /cldata/aria2.conf
 COPY init.sh /cldata/init.sh
 RUN chmod +x /cldata/init.sh
 
+WORKDIR /var/www/html/comic
+VOLUME /var/www/html/comic
+
+
+
 
 
 EXPOSE 80 6800
