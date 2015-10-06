@@ -12,6 +12,7 @@ RUN echo "deb http://archive.ubuntu.com/ubuntu trusty-updates multiverse" >> /et
 RUN apt-get update && apt-get upgrade -y
 
 # 安装unrar
+RUN apt-get install unrar -y
 RUN apt-get install p7zip-full p7zip-rar -y
 #RUN apt-get install p7zip-rar -y
 
@@ -33,13 +34,11 @@ RUN apt-get install aria2 -y
 #RUN mkdir cldata
 ADD aria2.conf /cldata/aria2.conf
 COPY init.sh /cldata/init.sh
+COPY init.php /cldata/init.php
 RUN chmod +x /cldata/init.sh
 
 WORKDIR /var/www/html/comic
 VOLUME /var/www/html/comic
-
-
-
 
 
 EXPOSE 80 6800
